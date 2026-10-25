@@ -1,0 +1,45 @@
+.chat-messages {
+  display: flex;
+  height: 275px;
+  flex-direction: column;
+  gap: 11px;
+  overflow-y: auto;
+  padding: 18px;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--line) transparent;
+}
+.chat-message {
+  max-width: 86%;
+  padding: 10px 13px;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--paper);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  animation: rise-in 180ms ease both;
+}
+.chat-assistant { align-self: flex-start; }
+.chat-user { align-self: flex-end; border-color: var(--green); color: #fff; background: var(--green); }
+body.dark-mode .chat-user { color: #17211e; }
+.chat-thinking { color: var(--muted); font-style: italic; }
+.chat-prompts { display: flex; flex-wrap: wrap; gap: 7px; padding: 0 18px 14px; }
+.chat-prompts button { min-height: 31px; padding: 0 10px; border: 1px solid var(--line); border-radius: 2px; color: var(--green); background: transparent; cursor: pointer; font-size: 0.73rem; font-weight: 600; transition: background-color 150ms ease, border-color 150ms ease; }
+.chat-prompts button:hover:not(:disabled) { border-color: var(--green); background: var(--green-soft); }
+.chat-prompts button:disabled { cursor: wait; opacity: 0.6; }
+.chat-form { display: flex; gap: 8px; padding: 0 18px 16px; }
+.chat-form input { width: 100%; min-width: 0; min-height: 45px; padding: 0 12px; border: 1px solid var(--line); border-radius: 0; color: var(--ink); background: var(--surface); font-size: 0.83rem; }
+.chat-form input::placeholder { color: var(--muted); }
+.chat-form input:disabled { opacity: 0.7; }
+.chat-form button { display: inline-flex; min-width: 86px; min-height: 45px; align-items: center; justify-content: center; gap: 9px; border: 0; color: #fff; background: var(--green); cursor: pointer; font-size: 0.8rem; font-weight: 700; transition: background-color 150ms ease; }
+.chat-form button:hover:not(:disabled) { background: #104c3d; }
+body.dark-mode .chat-form button { color: #17211e; }
+.chat-form button:disabled { cursor: wait; opacity: 0.6; }
+.chat-status { min-height: 20px; margin: -7px 18px 9px; color: var(--muted); font-size: 0.72rem; }
+@media (max-width: 640px) {
+  .chat-messages { height: 250px; padding: 14px; }
+  .chat-prompts { padding-right: 14px; padding-left: 14px; }
+  .chat-form { padding-right: 14px; padding-left: 14px; }
+  .chat-status { margin-right: 14px; margin-left: 14px; }
+  .chat-message { max-width: 94%; }
+}
